@@ -12,6 +12,7 @@ format:
     fontsize: 28px
     title-slide-attributes:
       data-state: title-slide
+    self-contained: true
 ---
 
 # Introduction to EBM
