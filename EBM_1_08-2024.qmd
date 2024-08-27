@@ -1,0 +1,543 @@
+---
+title: "EBM 2024: Lecture 1"
+subtitle: "Definition and Importance of Evidence-Based Medicine"
+author: "Austin Meyer, MD, PhD, MS, MPH, MS"
+date: "2024-08-30"
+format: 
+  revealjs:
+    theme: simple
+    slideNumber: true
+    transition: slide
+---
+
+```{css, echo=FALSE}
+.reveal .slides section .callout {
+  font-size: 0.8em;
+}
+#quiz-container-1, #quiz-container-2, #quiz-container-3 {
+  font-size: 0.6em;
+  text-align: left;
+}
+#quiz-container-1 .question, #quiz-container-2 .question, #quiz-container-3 .question {
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+#quiz-container-1 label, #quiz-container-2 label, #quiz-container-3 label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.8em;
+}
+#quiz-container-1 button, #quiz-container-2 button, #quiz-container-3 button {
+  margin-top: 10px;
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+#result-1, #result-2, #result-3, #explanation-1, #explanation-2, #explanation-3 {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+```
+
+# Introduction to Evidence-Based Medicine (EBM)
+
+---
+
+## What is Evidence-Based Medicine (EBM)?
+
+:::{.columns}
+
+:::{.column width="60%"}
+<br>
+
+- **Integration** of:
+  - Best research evidence
+  - Clinical expertise
+  - Patient values and preferences
+  
+:::
+
+:::{.column width="40%"}
+![](figs/fig1.webp)
+:::
+
+:::
+
+
+---
+
+## Importance of EBM in Clinical Practice
+
+- **Improves** patient outcomes
+- **Enhances** quality of care
+- **Promotes** efficient use of resources
+- **Keeps** practitioners updated with latest research
+
+---
+
+## The EBM Process
+
+:::{.columns}
+
+:::{.column width='70%'}
+
+```{r, echo=FALSE, fig.align='center'}
+library(ggplot2)
+library(ggforce)
+
+# Create data frame for the circles
+df <- data.frame(
+  x = c(0, 1.2, 0.7, -0.7, -1.2),
+  y = c(1.2, 0.3, -1, -1, 0.3),
+  label = c("Ask", "Acquire", "Appraise", "Apply", "Assess"),
+  color = c("#8CB3D9", "#96C3CE", "#A1D0A5", "#98C9B0", "#7AB69C")
+)
+
+# Calculate arrow start and end points
+calculate_arrow_points <- function(x1, y1, x2, y2, r) {
+  angle <- atan2(y2 - y1, x2 - x1)
+  start_x <- x1 + r * cos(angle)
+  start_y <- y1 + r * sin(angle)
+  end_x <- x2 - r * cos(angle)
+  end_y <- y2 - r * sin(angle)
+  return(c(start_x, start_y, end_x, end_y))
+}
+
+# Create data frame for the arrows
+arrows <- data.frame(
+  x = numeric(5),
+  y = numeric(5),
+  xend = numeric(5),
+  yend = numeric(5)
+)
+
+for (i in 1:5) {
+  next_i <- ifelse(i == 5, 1, i + 1)
+  points <- calculate_arrow_points(df$x[i], df$y[i], df$x[next_i], df$y[next_i], 0.5)
+  arrows[i, ] <- points
+}
+
+# Create the plot
+ggplot() +
+  geom_circle(aes(x0 = x, y0 = y, r = 0.45, fill = color), data = df, color = "white", size = 2) +
+  geom_text(aes(x = x, y = y, label = label), data = df, color = "white", fontface = "bold", size = 6) +
+  geom_curve(aes(x = x, y = y, xend = xend, yend = yend), 
+             data = arrows, 
+             arrow = arrow(type = "closed", length = unit(1, "cm")),
+             curvature = 0,
+             color = "#A9A9A9",
+             size = 3) +
+  scale_fill_identity() +
+  coord_fixed() +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+:::
+
+:::{.column width='30%'}
+
+1. **Ask**
+2. **Acquire**
+3. **Appraise**
+4. **Apply**
+5. **Assess**
+
+:::
+
+:::
+
+
+
+---
+
+## The EBM Process: Ask
+
+:::{.columns}
+
+:::{.column width='50%'}
+
+- Formulate a **clear clinical question**
+- Utilize the **PICO** framework:
+  - **P**atient/Population
+  - **I**ntervention
+  - **C**omparison
+  - **O**utcome
+
+:::
+
+:::{.column width='50%'}
+
+```{r, fig.align='center', fig.height= 5.5, fig.width= 4}
+library(ggplot2)
+library(ggtext)
+
+# Create data frame for the PICO components
+df <- data.frame(
+  x = rep(1, 4),
+  y = c(4, 3, 2, 1),
+  component = c("Patient/Population", "Intervention", "Comparison", "Outcome"),
+  description = c("Who or what?", "What action?", "Alternative?", "What result?"),
+  color = c("#5A8CAB", "#6A9EAE", "#7BAD86", "#689F8E")
+)
+
+# Create data frame for the arrows
+arrows_df <- data.frame(
+  x = rep(1, 3),
+  xend = rep(1, 3),
+  y = c(3.6, 2.6, 1.6),
+  yend = c(3.4, 2.4, 1.4)
+)
+
+# Create the plot
+ggplot() +
+  geom_rect(data = df, aes(xmin = x - 0.4, xmax = x + 0.4, ymin = y - 0.3, ymax = y + 0.3, fill = component),
+            color = "white", size = 0.5, alpha = 0.8) +
+  geom_text(data = df, aes(x = x, y = y, label = component), color = "white", fontface = "bold", size = 4, lineheight = 0.8) +
+  geom_text(data = df, aes(x = x + 0.7, y = y, label = description), color = "#4A4A4A", size = 6, fontface = "italic", hjust = 0) +
+  geom_text(aes(x = 1, y = 4.8), label = "PICO Framework", fontface = "bold", size = 6, color = "#4A4A4A") +
+  geom_segment(data = arrows_df, aes(x = x, y = y, xend = xend, yend = yend),
+               arrow = arrow(length = unit(0.03, "npc"), type = "closed"),
+               color = "darkgray", size = 1.5) +
+  scale_fill_manual(values = df$color) +
+  scale_x_continuous(limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(0.5, 5)) +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.background = element_rect(fill = "white", color = NA)) +
+  coord_cartesian(clip = "off")
+```
+:::
+
+:::
+
+---
+
+## The EBM Process: Acquire
+
+:::{.columns}
+
+:::{.column width='50%'}
+![](figs/fig_cochrane.png)
+:::
+
+:::{.column width='50%'}
+<br>
+<br>
+
+- **Search** for the best available evidence
+- Utilize databases like **PubMed**, **Cochrane Library**
+- [Cochrane](https://www.cochrane.org/)
+
+:::
+
+:::
+
+---
+
+## The EBM Process: Appraise
+
+- **Critically evaluate** the evidence
+- Assess **validity**, **relevance**, and **applicability**
+- There are lots of tools for this:
+  - [Oxford Tools](https://www.cebm.ox.ac.uk/resources/ebm-tools/critical-appraisal-tools)
+  - [JBI Tools](https://jbi.global/critical-appraisal-tools)
+  - [BMJ Tools](https://bestpractice.bmj.com/info/us/toolkit/ebm-tools/critical-appraisal-checklists)
+
+---
+
+## The EBM Process: Apply
+
+:::{.columns}
+
+:::{.column width='40%'}
+![](figs/fig_discussion.jpeg)
+:::
+
+:::{.column width='60%'}
+
+- **Integrate** evidence with clinical expertise
+- **Consider** patient preferences and circumstances
+
+:::
+
+:::
+
+---
+
+## The EBM Process: Assess
+
+- **Evaluate** the outcome of the decision
+- **Reflect** on the process and identify areas for improvement
+
+```{r, fig.align='center'}
+library(ggplot2)
+library(ggtext)
+
+# Define colors
+main_color <- "#3A7CA5"
+accent_color <- "#D9822B"
+
+# Create data frame for the main circles
+df <- data.frame(
+  x = c(0, 1),
+  y = c(0, 0),
+  label = c("Evaluate\nOutcome", "Reflect &\nImprove")
+)
+
+# Create the plot
+ggplot() +
+  # Add main circles
+  geom_point(data = df, aes(x, y), size = 50, color = main_color) +
+  
+  # Add text labels
+  geom_text(data = df, aes(x, y, label = label), color = "white", fontface = "bold", size = 6, lineheight = 0.8, 
+            family = "sans") +
+  
+  # Add arrows
+  geom_curve(aes(x = 0.2, y = 0.2, xend = 0.8, yend = 0.2), 
+             arrow = arrow(length = unit(0.03, "npc"), type = "closed"),
+             curvature = -0.3, color = accent_color, size = 2) +
+  geom_curve(aes(x = 0.8, y = -0.2, xend = 0.2, yend = -0.2), 
+             arrow = arrow(length = unit(0.03, "npc"), type = "closed"),
+             curvature = -0.3, color = accent_color, size = 2) +
+  
+  # Add title
+  geom_text(aes(x = 0.5, y = 0.6), label = "Continuous Improvement Cycle", 
+            fontface = "bold", size = 6, color = main_color, family = "sans") +
+  
+  # Set theme and coordinates
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "transparent", color = NA),
+    panel.background = element_rect(fill = "transparent", color = NA),
+    plot.margin = margin(20, 20, 20, 20)
+  ) +
+  coord_cartesian(xlim = c(-0.5, 1.5), ylim = c(-0.6, 0.7), clip = "off")
+```
+
+---
+
+## Levels of Evidence
+
+```{r evidence_pyramid, echo=FALSE, fig.width=9, fig.height=6, fig.align='center'}
+library(ggplot2)
+
+# Define levels of evidence
+levels <- c("Systematic Reviews", 
+            "Randomized Controlled Trials", 
+            "Cohort Studies", 
+            "Case-Control Studies", 
+            "Expert Opinion")
+
+# Create a data frame for the pyramid
+df <- data.frame(
+  Level = factor(levels, levels = rev(levels)),
+  Value = 5:1,
+  ymin = c(4, 3, 2, 1, 0),
+  ymax = c(4.5, 5.5, 6.5, 7.5, 8.5)
+)
+
+# Define a custom color palette (from darker to lighter blue)
+blue_palette <- rev(c("#4A97D5", "#6FAEE0", "#94C5EA", "#B9DCF5", "#E6F3FF"))
+
+# Create the pyramid plot
+ggplot(df, aes(xmin = 0, xmax = Value, ymin = ymin-2, ymax = ymax+2, fill = Level)) +
+  geom_rect() +
+  coord_flip() +
+  scale_fill_manual(values = blue_palette) +  # Use custom color palette
+  scale_y_continuous(breaks = 1:5, labels = NULL, expand = c(0, 0)) +
+  scale_x_continuous(expand = c(0, 0), limits = c(0, 5), labels = NULL) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.position = "none",
+    panel.grid = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  geom_text(
+    aes(x = Value - 0.5, y = (ymin + ymax) / 2, label = Level),
+    hjust = 0.5, vjust = 0.5, size = 5, color = "black"
+  )
+```
+
+## Question 1
+
+::: {#quiz-container-1}
+<p class="question">
+A 7-year-old boy with a history of recurrent asthma exacerbations presents to the clinic. His parents are concerned about the long-term effects of inhaled corticosteroids and have read conflicting information online. They ask whether continuing the medication is the best option for their child. As a clinician using Evidence-Based Medicine (EBM), what is the first step you should take to address their concerns?
+</p>
+
+<form id="quiz-form-1">
+  <label><input type="radio" name="answer-1" value="A"> A. Conduct a thorough literature review on the long-term effects of inhaled corticosteroids.</label><br>
+  <label><input type="radio" name="answer-1" value="B"> B. Formulate a clinical question using the PICO framework.</label><br>
+  <label><input type="radio" name="answer-1" value="C"> C. Provide reassurance based on your clinical experience with similar patients.</label><br>
+  <label><input type="radio" name="answer-1" value="D"> D. Adjust the medication regimen based on the patient's preferences and concerns.</label><br>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-1" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-1"></div>
+<div id="explanation-1" style="display:none;">
+  <p><strong>Explanation:</strong> The first step in the EBM process is to formulate a clear clinical question using the PICO (Patient/Population, Intervention, Comparison, Outcome) framework, which will guide the search for the best available evidence.</p>
+</div>
+:::
+
+```{=html}
+<script>
+document.getElementById('quiz-form-1').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-1"]:checked');
+  var result = document.getElementById('result-1');
+  var explanation = document.getElementById('explanation-1');
+  var resetButton = document.getElementById('reset-button-1');
+  
+  if (selected) {
+    if (selected.value === 'B') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+    
+    document.querySelectorAll('input[name="answer-1"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+
+document.getElementById('reset-button-1').onclick = function() {
+  document.querySelectorAll('input[name="answer-1"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+  
+  document.getElementById('result-1').innerHTML = '';
+  document.getElementById('explanation-1').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+## Question 2
+
+::: {#quiz-container-2}
+<p class="question">
+A pediatric resident is reviewing a recent study that suggests a new treatment for pediatric eczema. The study is a randomized controlled trial (RCT) with a large sample size and demonstrates statistically significant results. According to the principles of Evidence-Based Medicine (EBM), which of the following best describes the importance of this study's findings?
+</p>
+
+<form id="quiz-form-2">
+  <label><input type="radio" name="answer-2" value="A"> A. The study's findings should be applied immediately in clinical practice without further consideration.</label><br>
+  <label><input type="radio" name="answer-2" value="B"> B. The study provides strong evidence, but only anecdotal experience should be prioritized in patient care.</label><br>
+  <label><input type="radio" name="answer-2" value="C"> C. The results are only useful if the study was conducted in a local population similar to the resident's patients.</label><br>
+  <label><input type="radio" name="answer-2" value="D"> D. The findings are the highest level of evidence and should be integrated with clinical expertise and patient preferences.</label><br>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-2" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-2"></div>
+<div id="explanation-2" style="display:none;">
+  <p><strong>Explanation:</strong> In EBM, randomized controlled trials (RCTs) represent a high level of evidence. However, the findings should be integrated with the clinician's expertise and the patient's values and preferences before being applied in practice.</p>
+</div>
+:::
+
+```{=html}
+<script>
+document.getElementById('quiz-form-2').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-2"]:checked');
+  var result = document.getElementById('result-2');
+  var explanation = document.getElementById('explanation-2');
+  var resetButton = document.getElementById('reset-button-2');
+  
+  if (selected) {
+    if (selected.value === 'D') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+    
+    document.querySelectorAll('input[name="answer-2"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+
+document.getElementById('reset-button-2').onclick = function() {
+  document.querySelectorAll('input[name="answer-2"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+  
+  document.getElementById('result-2').innerHTML = '';
+  document.getElementById('explanation-2').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+## Question 3
+
+::: {#quiz-container-3}
+<p class="question">
+Which of the following best exemplifies the integration of patient values and preferences in the practice of Evidence-Based Medicine (EBM) for a pediatric patient?
+</p>
+
+<form id="quiz-form-3">
+  <label><input type="radio" name="answer-3" value="A"> A. A clinician explains the benefits and risks of treatment options to the patient's family and collaborates with them to choose the most appropriate course of action.</label><br>
+  <label><input type="radio" name="answer-3" value="B"> B. A clinician relies exclusively on their past experiences with similar cases to make a treatment decision.</label><br>
+    <label><input type="radio" name="answer-3" value="C"> C. A clinician prescribes the standard treatment for a condition based solely on the most recent clinical guidelines.</label><br>
+  <label><input type="radio" name="answer-3" value="D"> D. A clinician chooses the treatment that is most convenient for the hospital's schedule, regardless of patient preferences.</label><br>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-3" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-3"></div>
+<div id="explanation-3" style="display:none;">
+  <p><strong>Explanation:</strong> EBM involves not only the integration of the best available research evidence and clinical expertise but also the incorporation of the patient's values and preferences into the decision-making process. Collaborating with the family to choose the most appropriate course of action exemplifies this integration.</p>
+</div>
+:::
+
+```{=html}
+<script>
+document.getElementById('quiz-form-3').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-3"]:checked');
+  var result = document.getElementById('result-3');
+  var explanation = document.getElementById('explanation-3');
+  var resetButton = document.getElementById('reset-button-3');
+  
+  if (selected) {
+    if (selected.value === 'A') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+    
+    document.querySelectorAll('input[name="answer-3"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+
+document.getElementById('reset-button-3').onclick = function() {
+  document.querySelectorAll('input[name="answer-3"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+  
+  document.getElementById('result-3').innerHTML = '';
+  document.getElementById('explanation-3').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
