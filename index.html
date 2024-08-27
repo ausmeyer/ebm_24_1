@@ -32,6 +32,7 @@
     }
   </style>
   <link rel="stylesheet" href="EBM_1_08-2024_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="custom.css">
   <link href="EBM_1_08-2024_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="EBM_1_08-2024_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="EBM_1_08-2024_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -325,7 +326,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-state="title-slide" class="quarto-title-block center">
   <h1 class="title">EBM 2024: Lecture 1</h1>
   <p class="subtitle">Definition and Importance of Evidence-Based Medicine</p>
 
@@ -339,48 +340,15 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 
   <p class="date">2024-08-30</p>
 </section>
-<section class="slide level2">
-
-<div class="cell">
-<style type="text/css">
-.reveal .slides section .callout {
-  font-size: 0.8em;
-}
-#quiz-container-1, #quiz-container-2, #quiz-container-3 {
-  font-size: 0.6em;
-  text-align: left;
-}
-#quiz-container-1 .question, #quiz-container-2 .question, #quiz-container-3 .question {
-  font-size: 0.9em;
-  margin-bottom: 15px;
-}
-#quiz-container-1 label, #quiz-container-2 label, #quiz-container-3 label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 0.8em;
-}
-#quiz-container-1 button, #quiz-container-2 button, #quiz-container-3 button {
-  margin-top: 10px;
-  font-size: 0.9em;
-  margin-right: 10px;
-}
-#result-1, #result-2, #result-3, #explanation-1, #explanation-2, #explanation-3 {
-  margin-top: 15px;
-  font-size: 0.9em;
-}
-</style>
-</div>
-</section>
 <section>
-<section id="introduction-to-evidence-based-medicine-ebm" class="title-slide slide level1 center">
-<h1>Introduction to Evidence-Based Medicine (EBM)</h1>
+<section id="introduction-to-ebm" class="title-slide slide level1 center">
+<h1>Introduction to EBM</h1>
 
 </section>
-<section id="what-is-evidence-based-medicine-ebm" class="slide level2">
-<h2>What is Evidence-Based Medicine (EBM)?</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><br></p>
+<section id="what-is-evidence-based-medicine" class="slide level2">
+<h2>What is Evidence-Based Medicine?</h2>
+<div class="columns column-container">
+<div class="column" style="width:50%;">
 <ul>
 <li><strong>Integration</strong> of:
 <ul>
@@ -389,7 +357,7 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 <li>Patient values and preferences</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:50%;">
 <p><img data-src="figs/fig1.webp"></p>
 </div>
 </div>
@@ -405,32 +373,37 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 </section>
 <section id="the-ebm-process" class="slide level2">
 <h2>The EBM Process</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
+<div class="columns column-container">
+<div class="column" style="width:50%;">
+<div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="EBM_1_08-2024_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<p><img data-src="EBM_1_08-2024_files/figure-revealjs/unnamed-chunk-1-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:30%;">
+</div>
+</div><div class="column" style="width:50%;">
+<div class="column">
 <ol type="1">
-<li><strong>Ask</strong></li>
-<li><strong>Acquire</strong></li>
-<li><strong>Appraise</strong></li>
-<li><strong>Apply</strong></li>
-<li><strong>Assess</strong></li>
+<li><strong>Ask</strong> - <em>Formulate clinical question</em></li>
+<li><strong>Acquire</strong> - <em>Gather relevant evidence</em></li>
+<li><strong>Appraise</strong> - <em>Evaluate evidence quality</em></li>
+<li><strong>Apply</strong> - <em>Integrate with patient care</em></li>
+<li><strong>Assess</strong> - <em>Evaluate outcomes</em></li>
 </ol>
+</div>
 </div>
 </div>
 </section>
 <section id="the-ebm-process-ask" class="slide level2">
 <h2>The EBM Process: Ask</h2>
-<div class="columns">
+<div class="columns column-container">
 <div class="column" style="width:50%;">
+<div class="column">
 <ul>
 <li>Formulate a <strong>clear clinical question</strong></li>
 <li>Utilize the <strong>PICO</strong> framework:
@@ -441,13 +414,16 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 <li><strong>O</strong>utcome</li>
 </ul></li>
 </ul>
+</div>
 </div><div class="column" style="width:50%;">
+<div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="EBM_1_08-2024_files/figure-revealjs/unnamed-chunk-3-1.png" width="384"></p>
+<p><img data-src="EBM_1_08-2024_files/figure-revealjs/unnamed-chunk-2-1.png" width="384"></p>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -456,16 +432,19 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 </section>
 <section id="the-ebm-process-acquire" class="slide level2">
 <h2>The EBM Process: Acquire</h2>
-<div class="columns">
+<div class="columns column-container">
 <div class="column" style="width:50%;">
+<div class="column">
 <p><img data-src="figs/fig_cochrane.png"></p>
+</div>
 </div><div class="column" style="width:50%;">
-<p><br> <br></p>
+<div class="column">
 <ul>
 <li><strong>Search</strong> for the best available evidence</li>
 <li>Utilize databases like <strong>PubMed</strong>, <strong>Cochrane Library</strong></li>
 <li><a href="https://www.cochrane.org/">Cochrane</a></li>
 </ul>
+</div>
 </div>
 </div>
 </section>
@@ -484,14 +463,18 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 </section>
 <section id="the-ebm-process-apply" class="slide level2">
 <h2>The EBM Process: Apply</h2>
-<div class="columns">
+<div class="columns column-container">
 <div class="column" style="width:40%;">
-<p><img data-src="figs/fig_discussion.jpeg"></p>
+<div class="column image-container">
+<p><img data-src="figs/fig_discussion.jpeg" class="img-fluid" style="max-height: 60vh;"></p>
+</div>
 </div><div class="column" style="width:60%;">
+<div class="column">
 <ul>
 <li><strong>Integrate</strong> evidence with clinical expertise</li>
 <li><strong>Consider</strong> patient preferences and circumstances</li>
 </ul>
+</div>
 </div>
 </div>
 </section>
@@ -502,7 +485,7 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 <li><strong>Reflect</strong> on the process and identify areas for improvement</li>
 </ul>
 
-<img data-src="EBM_1_08-2024_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="EBM_1_08-2024_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section id="levels-of-evidence" class="slide level2">
 <h2>Levels of Evidence</h2>
 
@@ -514,7 +497,7 @@ Austin Meyer, MD, PhD, MS, MPH, MS
 A 7-year-old boy with a history of recurrent asthma exacerbations presents to the clinic. His parents are concerned about the long-term effects of inhaled corticosteroids and have read conflicting information online. They ask whether continuing the medication is the best option for their child. As a clinician using Evidence-Based Medicine (EBM), what is the first step you should take to address their concerns?
 </p>
 <form id="quiz-form-1">
-<label><input type="radio" name="answer-1" value="A"> A. Conduct a thorough literature review on the long-term effects of inhaled corticosteroids.</label><br> <label><input type="radio" name="answer-1" value="B"> B. Formulate a clinical question using the PICO framework.</label><br> <label><input type="radio" name="answer-1" value="C"> C. Provide reassurance based on your clinical experience with similar patients.</label><br> <label><input type="radio" name="answer-1" value="D"> D. Adjust the medication regimen based on the patient’s preferences and concerns.</label><br> <button type="submit">Submit Answer</button> <button type="button" id="reset-button-1" style="display:none;">Reset Quiz</button>
+<label> <input type="radio" name="answer-1" value="A"> <span class="answer-text"><span class="answer-letter">A.</span> Conduct a thorough literature review on the long-term effects of inhaled corticosteroids.</span> </label> <label> <input type="radio" name="answer-1" value="B"> <span class="answer-text"><span class="answer-letter">B.</span> Formulate a clinical question using the PICO framework.</span> </label> <label> <input type="radio" name="answer-1" value="C"> <span class="answer-text"><span class="answer-letter">C.</span> Provide reassurance based on your clinical experience with similar patients.</span> </label> <label> <input type="radio" name="answer-1" value="D"> <span class="answer-text"><span class="answer-letter">D.</span> Adjust the medication regimen based on the patient’s preferences and concerns.</span> </label> <button type="submit">Submit Answer</button> <button type="button" id="reset-button-1" style="display:none;">Reset Quiz</button>
 </form>
 <div id="result-1">
 
@@ -532,7 +515,7 @@ document.getElementById('quiz-form-1').onsubmit = function(e) {
   var result = document.getElementById('result-1');
   var explanation = document.getElementById('explanation-1');
   var resetButton = document.getElementById('reset-button-1');
-  
+
   if (selected) {
     if (selected.value === 'B') {
       result.innerHTML = '<p style="color: green;">Correct!</p>';
@@ -541,7 +524,7 @@ document.getElementById('quiz-form-1').onsubmit = function(e) {
     }
     explanation.style.display = 'block';
     resetButton.style.display = 'inline-block';
-    
+
     document.querySelectorAll('input[name="answer-1"]').forEach(function(radio) {
       radio.disabled = true;
     });
@@ -555,7 +538,7 @@ document.getElementById('reset-button-1').onclick = function() {
     radio.checked = false;
     radio.disabled = false;
   });
-  
+
   document.getElementById('result-1').innerHTML = '';
   document.getElementById('explanation-1').style.display = 'none';
   this.style.display = 'none';
@@ -569,7 +552,7 @@ document.getElementById('reset-button-1').onclick = function() {
 A pediatric resident is reviewing a recent study that suggests a new treatment for pediatric eczema. The study is a randomized controlled trial (RCT) with a large sample size and demonstrates statistically significant results. According to the principles of Evidence-Based Medicine (EBM), which of the following best describes the importance of this study’s findings?
 </p>
 <form id="quiz-form-2">
-<label><input type="radio" name="answer-2" value="A"> A. The study’s findings should be applied immediately in clinical practice without further consideration.</label><br> <label><input type="radio" name="answer-2" value="B"> B. The study provides strong evidence, but only anecdotal experience should be prioritized in patient care.</label><br> <label><input type="radio" name="answer-2" value="C"> C. The results are only useful if the study was conducted in a local population similar to the resident’s patients.</label><br> <label><input type="radio" name="answer-2" value="D"> D. The findings are the highest level of evidence and should be integrated with clinical expertise and patient preferences.</label><br> <button type="submit">Submit Answer</button> <button type="button" id="reset-button-2" style="display:none;">Reset Quiz</button>
+<label> <input type="radio" name="answer-2" value="A"> <span class="answer-text"><span class="answer-letter">A.</span> The study’s findings should be applied immediately in clinical practice without further consideration.</span> </label> <label> <input type="radio" name="answer-2" value="B"> <span class="answer-text"><span class="answer-letter">B.</span> The study provides strong evidence, but only anecdotal experience should be prioritized in patient care.</span> </label> <label> <input type="radio" name="answer-2" value="C"> <span class="answer-text"><span class="answer-letter">C.</span> The results are only useful if the study was conducted in a local population similar to the resident’s patients.</span> </label> <label> <input type="radio" name="answer-2" value="D"> <span class="answer-text"><span class="answer-letter">D.</span> The findings are the highest level of evidence and should be integrated with clinical expertise and patient preferences.</span> </label> <button type="submit">Submit Answer</button> <button type="button" id="reset-button-2" style="display:none;">Reset Quiz</button>
 </form>
 <div id="result-2">
 
@@ -587,16 +570,16 @@ document.getElementById('quiz-form-2').onsubmit = function(e) {
   var result = document.getElementById('result-2');
   var explanation = document.getElementById('explanation-2');
   var resetButton = document.getElementById('reset-button-2');
-  
+
   if (selected) {
     if (selected.value === 'D') {
       result.innerHTML = '<p style="color: green;">Correct!</p>';
     } else {
-      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is D.</p>';
     }
     explanation.style.display = 'block';
     resetButton.style.display = 'inline-block';
-    
+
     document.querySelectorAll('input[name="answer-2"]').forEach(function(radio) {
       radio.disabled = true;
     });
@@ -610,7 +593,7 @@ document.getElementById('reset-button-2').onclick = function() {
     radio.checked = false;
     radio.disabled = false;
   });
-  
+
   document.getElementById('result-2').innerHTML = '';
   document.getElementById('explanation-2').style.display = 'none';
   this.style.display = 'none';
@@ -624,7 +607,7 @@ document.getElementById('reset-button-2').onclick = function() {
 Which of the following best exemplifies the integration of patient values and preferences in the practice of Evidence-Based Medicine (EBM) for a pediatric patient?
 </p>
 <form id="quiz-form-3">
-<label><input type="radio" name="answer-3" value="A"> A. A clinician explains the benefits and risks of treatment options to the patient’s family and collaborates with them to choose the most appropriate course of action.</label><br> <label><input type="radio" name="answer-3" value="B"> B. A clinician relies exclusively on their past experiences with similar cases to make a treatment decision.</label><br> <label><input type="radio" name="answer-3" value="C"> C. A clinician prescribes the standard treatment for a condition based solely on the most recent clinical guidelines.</label><br> <label><input type="radio" name="answer-3" value="D"> D. A clinician chooses the treatment that is most convenient for the hospital’s schedule, regardless of patient preferences.</label><br> <button type="submit">Submit Answer</button> <button type="button" id="reset-button-3" style="display:none;">Reset Quiz</button>
+<label> <input type="radio" name="answer-3" value="A"> <span class="answer-text"><span class="answer-letter">A.</span> A clinician explains the benefits and risks of treatment options to the patient’s family and collaborates with them to choose the most appropriate course of action.</span> </label> <label> <input type="radio" name="answer-3" value="B"> <span class="answer-text"><span class="answer-letter">B.</span> A clinician relies exclusively on their past experiences with similar cases to make a treatment decision.</span> </label> <label> <input type="radio" name="answer-3" value="C"> <span class="answer-text"><span class="answer-letter">C.</span> A clinician prescribes the standard treatment for a condition based solely on the most recent clinical guidelines.</span> </label> <label> <input type="radio" name="answer-3" value="D"> <span class="answer-text"><span class="answer-letter">D.</span> A clinician chooses the treatment that is most convenient for the hospital’s schedule, regardless of patient preferences.</span> </label> <button type="submit">Submit Answer</button> <button type="button" id="reset-button-3" style="display:none;">Reset Quiz</button>
 </form>
 <div id="result-3">
 
@@ -642,16 +625,16 @@ document.getElementById('quiz-form-3').onsubmit = function(e) {
   var result = document.getElementById('result-3');
   var explanation = document.getElementById('explanation-3');
   var resetButton = document.getElementById('reset-button-3');
-  
+
   if (selected) {
     if (selected.value === 'A') {
       result.innerHTML = '<p style="color: green;">Correct!</p>';
     } else {
-      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is A.</p>';
     }
     explanation.style.display = 'block';
     resetButton.style.display = 'inline-block';
-    
+
     document.querySelectorAll('input[name="answer-3"]').forEach(function(radio) {
       radio.disabled = true;
     });
@@ -665,7 +648,7 @@ document.getElementById('reset-button-3').onclick = function() {
     radio.checked = false;
     radio.disabled = false;
   });
-  
+
   document.getElementById('result-3').innerHTML = '';
   document.getElementById('explanation-3').style.display = 'none';
   this.style.display = 'none';

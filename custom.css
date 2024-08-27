@@ -1,0 +1,153 @@
+Now, here's the complete CSS file that includes all the styling we've discussed:
+
+```css
+/* General slide styles */
+.reveal .slides {
+  font-size: 28px;
+}
+
+.reveal h1 {
+  font-size: 2.2em;
+  color: #005b96;
+}
+
+.reveal h2 {
+  font-size: 1.8em;
+  color: #005b96;
+}
+
+.reveal .slide-number {
+  font-size: 0.5em;
+}
+
+/* Title slide specific styles */
+.title-slide {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+.title-slide h1 {
+  font-size: 2.5em !important;
+  margin-bottom: 0.2em !important;
+}
+
+.title-slide h2 {
+  font-size: 1.3em !important;
+  margin-bottom: 0.5em !important;
+}
+
+.title-slide h3 {
+  font-size: 1em !important;
+  margin-bottom: 0.2em !important;
+}
+
+/* Ensure other slides are not affected by title slide styles */
+.reveal .slides > section:not([data-state="title-slide"]) {
+  top: 0 !important;
+}
+
+.reveal .slides > section:not([data-state="title-slide"]) > * {
+  margin-top: -30px;
+}
+
+/* Column layout styles */
+.reveal .column-container {
+  display: flex;
+  height: 100%;
+}
+
+.reveal .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.reveal .column > * {
+  width: 100%;
+}
+
+/* Image styles */
+.reveal .slide-content img {
+  max-height: 70vh;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Utility classes for flexbox */
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+/* Quiz container styles */
+.callout {
+  font-size: 0.9em;
+}
+
+#quiz-container-1, #quiz-container-2, #quiz-container-3 {
+  font-size: 0.8em;
+  text-align: left;
+}
+
+#quiz-container-1 .question, #quiz-container-2 .question, #quiz-container-3 .question {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+#quiz-container-1 label, #quiz-container-2 label, #quiz-container-3 label {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+#quiz-container-1 label input, #quiz-container-2 label input, #quiz-container-3 label input {
+  margin-right: 10px;
+  margin-top: 0.5em;
+  flex-shrink: 0;
+}
+
+.answer-text {
+  display: inline-block;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.answer-letter {
+  display: inline-block;
+  width: .9em;
+  text-indent: 0;
+}
+
+#quiz-container-1 button, #quiz-container-2 button, #quiz-container-3 button {
+  margin-top: 12px;
+  font-size: 0.95em;
+  margin-right: 10px;
+}
+
