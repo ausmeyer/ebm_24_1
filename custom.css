@@ -14,6 +14,11 @@ Now, here's the complete CSS file that includes all the styling we've discussed:
 .reveal h2 {
   font-size: 1.8em;
   color: #005b96;
+  margin-bottom: 0.3em;
+}
+
+.reveal h3 {
+  margin-bottom: 0.5em;
 }
 
 .reveal .slide-number {
@@ -150,4 +155,3 @@ Now, here's the complete CSS file that includes all the styling we've discussed:
   font-size: 0.95em;
   margin-right: 10px;
 }
-

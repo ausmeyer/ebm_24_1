@@ -15,7 +15,7 @@ format:
     self-contained: true
 ---
 
-# Introduction to EBM
+# Definition and Importance of Evidence-Based Medicine (EBM)
 
 ---
 
@@ -32,7 +32,7 @@ format:
   
 :::
 
-:::{.column width="50%"}
+:::{.column width="60%"}
 ![](figs/fig1.webp)
 :::
 
@@ -55,7 +55,7 @@ format:
 :::{.columns .column-container}
 :::{.column width='50%'}
 ::: {.column}
-```{r, echo=FALSE, fig.align='center', fig.width=6, fig.height=6}
+```{r, echo=FALSE, fig.align='center', fig.width=5, fig.height=7}
 library(ggplot2)
 library(ggforce)
 
@@ -130,21 +130,8 @@ ggplot() +
 
 ## The EBM Process: Ask
 
-:::{.columns .column-container}
+### Formulate a clear clinical question - PICO
 
-:::{.column width='50%'}
-::: {.column}
-- Formulate a **clear clinical question**
-- Utilize the **PICO** framework:
-  - **P**atient/Population
-  - **I**ntervention
-  - **C**omparison
-  - **O**utcome
-:::
-:::
-
-:::{.column width='50%'}
-::: {.column}
 ```{r, fig.align='center', fig.height= 5.5, fig.width= 4}
 library(ggplot2)
 library(ggtext)
@@ -168,11 +155,11 @@ arrows_df <- data.frame(
 
 # Create the plot
 ggplot() +
-  geom_rect(data = df, aes(xmin = x - 0.4, xmax = x + 0.4, ymin = y - 0.3, ymax = y + 0.3, fill = component),
+  geom_rect(data = df, aes(xmin = x - 0.5, xmax = x + 0.5, ymin = y - 0.3, ymax = y + 0.3, fill = component),
             color = "white", size = 0.5, alpha = 0.8) +
   geom_text(data = df, aes(x = x, y = y, label = component), color = "white", fontface = "bold", size = 4, lineheight = 0.8) +
   geom_text(data = df, aes(x = x + 0.7, y = y, label = description), color = "#4A4A4A", size = 6, fontface = "italic", hjust = 0) +
-  geom_text(aes(x = 1, y = 4.8), label = "PICO Framework", fontface = "bold", size = 6, color = "#4A4A4A") +
+  geom_text(aes(x = 1, y = 4.8), label = "", fontface = "bold", size = 6, color = "#4A4A4A") +
   geom_segment(data = arrows_df, aes(x = x, y = y, xend = xend, yend = yend),
                arrow = arrow(length = unit(0.03, "npc"), type = "closed"),
                color = "darkgray", size = 1.5) +
@@ -184,9 +171,6 @@ ggplot() +
         plot.background = element_rect(fill = "white", color = NA)) +
   coord_cartesian(clip = "off")
 ```
-:::
-:::
-:::
 
 ---
 
@@ -224,13 +208,13 @@ ggplot() +
 ## The EBM Process: Apply
 
 :::{.columns .column-container}
-:::{.column width="40%"}
+:::{.column width="60%"}
 ::: {.column .image-container}
 ![](figs/fig_discussion.jpeg){.img-fluid style="max-height: 60vh;"}
 :::
 :::
 
-:::{.column width='60%'}
+:::{.column width='40%'}
 ::: {.column}
 - **Integrate** evidence with clinical expertise
 - **Consider** patient preferences and circumstances
@@ -553,3 +537,69 @@ document.getElementById('reset-button-3').onclick = function() {
 };
 </script>
 ```
+
+# Research Methods Overview
+
+## Types of Clinical Research
+
+### Experimental vs. Observational Studies
+
+- **Experimental Studies**
+  - Interventions are actively manipulated.
+  - Example: Randomized Controlled Trials (RCTs).
+
+- **Observational Studies**
+  - No intervention; researchers observe outcomes.
+  - Example: Cohort studies, Case-control studies.
+
+---
+
+## Study Designs
+
+- **Randomized Controlled Trials (RCTs)**
+  - Gold standard for assessing causality.
+  - Random assignment to intervention or control.
+
+- **Cohort Studies**
+  - Observational; follows a group over time.
+  - Can be prospective or retrospective.
+
+- **Case-Control Studies**
+  - Compares individuals with a condition (cases) to those without (controls).
+  - Efficient for studying rare diseases.
+
+- **Cross-Sectional Studies**
+  - Snapshot at a single point in time.
+  - Useful for prevalence studies.
+
+---
+
+## Randomized Controlled Trials (RCTs)
+
+### Gold Standard for Causality
+
+<iframe src="rct-slide.html" width="100%" height="500px"></iframe>
+
+---
+
+## Cohort Studies
+
+### Observational Study Design
+
+<iframe src="cohort-slide.html" width="100%" height="800px"></iframe>
+
+---
+
+## Case-Control Studies
+
+### Retrospective Study Design
+
+<iframe src="case-control-slide.html" width="100%" height="500px"></iframe>
+
+---
+
+## Cross-Sectional Studies
+
+### Snapshot in Time
+
+<iframe src="cross-sectional-slide.html" width="100%" height="600px"></iframe>

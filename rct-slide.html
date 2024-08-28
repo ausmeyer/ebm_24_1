@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomized Controlled Trial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: stretch;
+        }
+        .process {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-right: 20px;
+            padding-right: 20px;
+            padding-top: 40px;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            width: 175px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px
+        }
+        .arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px; /* Increase this value to make the arrow longer */
+        }
+        .arrow::after {
+            content: "↓";
+            font-size: 24px;
+            line-height: 80px; /* Match this to the new height of the arrow */
+        }
+        #rct-visualization {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .groups {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .group {
+            text-align: center;
+            padding: 0 20px;
+        }
+        .participants {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 5px;
+        }
+        .participant {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+        }
+        .group-icon {
+            margin-top: 10px;
+        }
+        .group-icon img {
+            width: 50px;
+            height: 50px;
+        }
+        .equation {
+            font-size: 2em;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="process">
+            <div class="step">
+                1. Randomize
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                2. Apply Intervention
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                3. Run Statistical Test
+            </div>
+        </div>
+        <div id="rct-visualization">
+            <div class="groups">
+                <div class="group">
+                    <h3>Treatment Group</h3>
+                    <div id="treatment-group" class="participants"></div>
+                    <div class="group-icon">
+                        <svg viewBox="-18 -18 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>                      
+                    </div>
+                </div>
+                <div class="group">
+                    <h3>Control Group</h3>
+                    <div id="control-group" class="participants"></div>
+                    <div class="group-icon">
+                        <svg viewBox="-18 -18 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 2L7 22H17L19 2H5Z" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M7 13H17" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>  
+                    </div>
+                </div>
+            </div>
+            <div class="equation">
+                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    <mi>Y</mi>
+                    <mo>=</mo>
+                    <msub><mi>β</mi><mn>0</mn></msub>
+                    <mo>+</mo>
+                    <msub><mi>β</mi><mn>1</mn></msub>
+                    <mi>X</mi>
+                    <mo>+</mo>
+                    <mi>ε</mi>
+                </math>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createParticipants(groupId, count) {
+            const group = document.getElementById(groupId);
+            for (let i = 0; i < count; i++) {
+                const participant = document.createElement('div');
+                participant.className = 'participant';
+                group.appendChild(participant);
+            }
+        }
+
+        createParticipants('treatment-group', 20);
+        createParticipants('control-group', 20);
+    </script>
+</body>
+</html>

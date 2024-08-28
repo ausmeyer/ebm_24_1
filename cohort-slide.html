@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: stretch;
+            padding-top: 20px;
+        }
+        .process {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-right: 20px;
+            padding-right: 20px;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+        }
+        .arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+        }
+        .arrow::after {
+            content: "↓";
+            font-size: 24px;
+        }
+        .cohort-visualization {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 5px;
+        }
+        .group {
+            margin-bottom: 5px;
+        }
+        .participants {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+        }
+        .participant {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .gray { background-color: #888; }
+        .blue { background-color: #4285F4; }
+        .purple { background-color: #A142F4; }
+        .legend {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: 20px;
+            margin-top: 87px;
+            align-self: flex-start;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="process">
+            <div class="step">
+                1. Initial Cohort
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                2. Exposure
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                3. Outcome
+            </div>
+        </div>
+
+        <div class="cohort-visualization">
+            <div class="group">
+                <div class="participants">
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="participants">
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="participants">
+                    <div class="participant purple"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant purple"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant purple"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant purple"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant purple"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant gray"></div>
+                    <div class="participant blue"></div>
+                    <div class="participant gray"></div>
+                </div>
+            </div>
+        </div>
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color gray"></div>
+            <span>Initial/Unexposed</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color blue"></div>
+            <span>Exposed</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color purple"></div>
+            <span>Disease</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
