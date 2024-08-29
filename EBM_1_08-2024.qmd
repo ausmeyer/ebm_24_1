@@ -13,6 +13,8 @@ format:
     title-slide-attributes:
       data-state: title-slide
     self-contained: true
+    mermaid:
+      theme: default
 ---
 
 # Definition and Importance of Evidence-Based Medicine (EBM)
@@ -538,7 +540,11 @@ document.getElementById('reset-button-3').onclick = function() {
 </script>
 ```
 
+---
+
 # Research Methods Overview
+
+---
 
 ## Types of Clinical Research
 
@@ -603,3 +609,304 @@ document.getElementById('reset-button-3').onclick = function() {
 ### Snapshot in Time
 
 <iframe src="cross-sectional-slide.html" width="100%" height="600px"></iframe>
+
+---
+
+## Critical Appraisal of Research Articles
+
+### Assessing Methodology
+
+- **Study Design:** Was the study design appropriate for the research question? (e.g., RCT, cohort, case-control)
+- **Sample Size:** Is the sample size sufficient to detect a meaningful difference or effect? (i.e. is there sufficient power)
+- **Blinding and Randomization:** Were the participants and researchers adequately blinded, and was the randomization process robust?
+- **Outcome Measures:** Are the outcome measures valid, reliable, and clinically relevant?
+
+---
+
+## Critical Appraisal of Research Articles
+
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '18px' }}}%%
+flowchart TD
+    A[Did investigator assign exposures?] -->|Yes| B[Experimental study]
+    A -->|No| C[Observational study]
+
+    B --> D{Random allocation?}
+    D -->|Yes| E[Randomised controlled trial]
+    E --> E1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]:::tallNode
+    D -->|No| F[Non-randomised controlled trial]
+    F --> F1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]:::tallNode
+
+    C --> G{Comparison group?}
+    G -->|No| I[Descriptive study]
+    I --> I1[Summary statistics possibly]
+    G -->|Yes| H[Analytical study]
+    H ---> K[Cohort study]
+    K --> K1["Regression / HR / T-test<br>ANOVA / Chi-Square / RR"]:::tallNode
+    H ---> L[Case-control study]
+    L --> L1["Regression (esp. Logistic) / T-test<br>Chi-Square / McNemar's / OR"]:::tallNode
+    H ---> M[Cross-sectional study]
+    M --> M1["Regression / T-test<br>Chi-Square / OR"]
+
+    %% Lengthen lines
+    linkStyle 7,8,9 stroke-width:2px,fill:none,stroke:black;
+
+    classDef tallNode height:75;
+```
+
+---
+
+## Assessing Bias in Research
+
+### Common Types of Bias
+
+- **Selection Bias:** Are the participants selected in a way that may skew the results?
+  - Selection bias occurs when the participants included in a study are not representative of the target population, leading to results that may not be generalizable.
+- **Information Bias:** Is there a systematic error in how data is collected or classified?
+  - Information bias occurs when there is a systematic error in the way data is collected, measured, or recorded in a study, leading to inaccuracies in the data that affect the study's outcomes.
+- **Confounding:** Are there other variables that could influence the results, not accounted for?
+  - Confounding occurs when an extraneous variable (a confounder) is associated with both the exposure and the outcome, leading to a spurious association between them.
+
+---
+
+## Relevance to Clinical Practice
+
+### Assessing Relevance
+
+:::{.columns .column-container}
+:::{.column width="35%"}
+- **External Validity:** Can the results of the study be applied beyond the patients in the study?
+- **Applicability:** Can the study results be applied to your specific patient/population?
+- **Patient Values and Preferences:** Does the evidence align with your patients’ needs, circumstances, and preferences?
+:::
+:::{.column width="65%"}
+::: {.column .image-container}
+![](figs/relevance_diagram.svg){fig-align='center'}
+:::
+:::
+:::
+
+---
+
+### **Question 4**
+
+::: {#quiz-container-4}
+<p class="question">
+A pediatric researcher is planning a study to investigate the effectiveness of a new vaccine in preventing a common childhood infection. The researcher randomly assigns participants to either receive the new vaccine or a placebo, with both the participants and the clinicians blinded to the assignment. After a follow-up period, the incidence of the infection is compared between the two groups. Of the following, the BEST description of the study design used in this research is:
+</p>
+
+<form id="quiz-form-4">
+  <label>
+    <input type="radio" name="answer-4" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> Cohort Study</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-4" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> Cross-Sectional Study</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-4" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> Randomized Controlled Trial</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-4" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> Case-Control Study</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-4" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-4"></div>
+<div id="explanation-4" style="display:none;">
+  <p><strong>Explanation:</strong> A Randomized Controlled Trial (RCT) is the gold standard for evaluating the effectiveness of an intervention. Participants are randomly assigned to either the intervention or control group, and both participants and clinicians are blinded to the assignments to minimize bias.</p>
+</div>
+:::
+
+```{=html}
+<script>
+document.getElementById('quiz-form-4').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-4"]:checked');
+  var result = document.getElementById('result-4');
+  var explanation = document.getElementById('explanation-4');
+  var resetButton = document.getElementById('reset-button-4');
+
+  if (selected) {
+    if (selected.value === 'C') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is C.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+
+    document.querySelectorAll('input[name="answer-4"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+
+document.getElementById('reset-button-4').onclick = function() {
+  document.querySelectorAll('input[name="answer-4"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+
+  document.getElementById('result-4').innerHTML = '';
+  document.getElementById('explanation-4').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+---
+
+### **Question 5**
+
+::: {#quiz-container-5}
+<p class="question">
+In a study assessing the relationship between breastfeeding and the development of allergies, researchers follow a group of infants from birth until 5 years of age. The researchers document the breastfeeding status of the infants and monitor them for the development of allergies during this period. Which of the following BEST describes the study design?
+</p>
+
+<form id="quiz-form-5">
+  <label>
+    <input type="radio" name="answer-5" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> Case-Control Study</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-5" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> Cross-Sectional Study</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-5" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> Randomized Controlled Trial</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-5" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> Cohort Study</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-5" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-5"></div>
+<div id="explanation-5" style="display:none;">
+  <p><strong>Explanation:</strong> A Cohort Study follows a group of individuals over time to observe how specific exposures (e.g., breastfeeding) affect the development of outcomes (e.g., allergies). This prospective study design is ideal for studying the natural history of diseases.</p>
+</div>
+:::
+
+```{=html}
+<script>
+document.getElementById('quiz-form-5').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-5"]:checked');
+  var result = document.getElementById('result-5');
+  var explanation = document.getElementById('explanation-5');
+  var resetButton = document.getElementById('reset-button-5');
+
+  if (selected) {
+    if (selected.value === 'D') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is D.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+
+    document.querySelectorAll('input[name="answer-5"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+
+document.getElementById('reset-button-5').onclick = function() {
+  document.querySelectorAll('input[name="answer-5"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+
+  document.getElementById('result-5').innerHTML = '';
+  document.getElementById('explanation-5').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+---
+
+### **Question 6**
+
+::: {#quiz-container-6}
+<p class="question">
+When critically appraising a research article, a pediatric resident identifies that the study has a small sample size, potentially leading to low statistical power. Which of the following is the MOST appropriate concern related to low statistical power in this context?
+</p>
+
+<form id="quiz-form-6">
+  <label>
+    <input type="radio" name="answer-6" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> Increased risk of Type I error (false positive)</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-6" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> Increased risk of Type II error (false negative)</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-6" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> Overestimation of effect size</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-6" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> Bias due to confounding variables</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-6" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-6"></div>
+<div id="explanation-6" style="display:none;">
+  <p><strong>Explanation:</strong> Low statistical power increases the risk of a Type II error, which occurs when a study fails to detect a true effect or difference. This means that there may be a real association or difference, but the study might not have enough power to demonstrate it due to the small sample size.</p>
+</div>
+:::
+
+```{=html}
+<script>
+document.getElementById('quiz-form-6').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-6"]:checked');
+  var result = document.getElementById('result-6');
+  var explanation = document.getElementById('explanation-6');
+  var resetButton = document.getElementById('reset-button-6');
+
+  if (selected) {
+    if (selected.value === 'B') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+
+    document.querySelectorAll('input[name="answer-6"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+
+document.getElementById('reset-button-6').onclick = function() {
+  document.querySelectorAll('input[name="answer-6"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+
+  document.getElementById('result-6').innerHTML = '';
+  document.getElementById('explanation-6').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+---
+
