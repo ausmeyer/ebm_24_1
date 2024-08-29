@@ -586,7 +586,7 @@ document.getElementById('reset-button-3').onclick = function() {
 
 ### Observational Study Design
 
-<iframe src="cohort-slide.html" width="100%" height="800px"></iframe>
+<iframe src="cohort-slide.html" width="100%" height="500px"></iframe>
 
 ---
 
