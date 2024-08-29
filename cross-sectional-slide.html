@@ -37,9 +37,14 @@
       .green { background-color: #4ECB71; }
       .exposed { border: 2px solid #4682B4; }
       .equation {
-        font-size: 1.2em;
+        font-size: 1.5em;
         text-align: center;
         margin-top: 20px;
+      }
+      .equation-details {
+        font-size: 0.7em; /* This makes the text 70% of its parent's font size */
+        display: block;
+        margin-top: 10px;
       }
       h2 {
         text-align: center;
@@ -112,14 +117,16 @@
   </div>
 
   <div class="section">
-    <div class="equation">
-      Odds Ratio = (a/b) / (c/d)<br>
+  <div class="equation">
+    Odds Ratio = (a/b) / (c/d)<br>
+    <span class="equation-details">
       where:<br>
       a = exposed with condition<br>
       b = exposed without condition<br>
       c = unexposed with condition<br>
       d = unexposed without condition
-    </div>
+    </span>
+  </div>
   </div>
 
   <div class="legend">

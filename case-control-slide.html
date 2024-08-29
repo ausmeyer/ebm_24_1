@@ -11,6 +11,14 @@
         padding: 20px;
         position: relative;
       }
+      .main-content {
+        display: flex;
+        justify-content: space-between;
+      }
+      .process-and-visualization {
+        display: flex;
+        flex-grow: 1;
+      }
       .process {
         display: flex;
         flex-direction: column;
@@ -33,16 +41,16 @@
       }
       .case-control-visualization {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         flex-grow: 1;
-        margin-top: -35px; /* Move groups up */
+        margin-top: -35px;
       }
       .group {
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 230px; /* Adjust this value to change the gap size */
+        height: 230px;
       }
       .participants {
         display: flex;
@@ -57,143 +65,191 @@
         border-radius: 50%;
         margin: 2px;
       }
+      .gray { background-color: #ccc; }
+      .blue { background-color: #4285F4; }
+      .purple { background-color: #A142F4; }
+      .red { background-color: #F44242; }
+      .legend {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 20px;
+        align-self: flex-start;
+        margin-top: 118px;
+        width: 200px;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+      }
+      .legend-color {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+      .group-separator {
+        width: 30px;
+      }
       .equation {
         font-size: 1.5em;
-        position: absolute;
         text-align: center;
-        right: 250px;
-        top: 310px;
+        margin-top: -65px;
       }
-      .gray { background-color: #ccc; }
-      .purple { background-color: #9370DB; }
-      .main-content {
-        display: flex;
+      .equation-details {
+        font-size: 0.7em; /* This makes the text 70% of its parent's font size */
+        display: block;
+        margin-top: 10px;
       }
     </style>
 </head>
 <body>
 <div class="container">
   <div class="main-content">
-    <div class="process">
-      <div class="step">1. Identify Cases and Controls</div>
-      <div class="arrow">↓</div>
-      <div class="step">2. Assess Past Exposure</div>
-      <div class="arrow">↓</div>
-      <div class="step">3. Compare Exposure Rates</div>
-    </div>
-    <div class="case-control-visualization">
-      <div class="group">
-        <div>
-          <h3>Cases</h3>
-          <div class="participants">
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
+    <div class="process-and-visualization">
+      <div class="process">
+        <div class="step">1. Identify Cases and Controls</div>
+        <div class="arrow">↓</div>
+        <div class="step">2. Assess Past Exposure</div>
+        <div class="arrow">↓</div>
+        <div class="step">3. Compare Exposure Rates</div>
+      </div>
+      <div class="case-control-visualization">
+        <div class="group">
+          <div>
+            <h3>Cases</h3>
+            <div class="participants">
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+              <div class="participant red"></div>
+            </div>
+          </div>
+          <div>
+            <div class="participants">
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+              <div class="participant purple"></div>
+              <div class="participant red"></div>
+            </div>
           </div>
         </div>
-        <div>
-          <div class="participants">
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
+        <div class="group-separator"></div>
+        <div class="group">
+          <div>
+            <h3>Controls</h3>
+            <div class="participants">
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+            </div>
+          </div>
+          <div>
+            <div class="participants">
+              <div class="participant gray"></div>
+              <div class="participant blue"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant blue"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant blue"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant blue"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant blue"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant blue"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+              <div class="participant gray"></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="group">
-        <div>
-          <h3>Controls</h3>
-          <div class="participants">
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-          </div>
-        </div>
-        <div>
-          <div class="participants">
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant purple"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-            <div class="participant gray"></div>
-          </div>
-        </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-color gray"></div>
+        <span>Unexposed/Healthy</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color blue"></div>
+        <span>Exposed/Healthy</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color red"></div>
+        <span>Unexposed/Disease</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color purple"></div>
+        <span>Exposed/Disease</span>
       </div>
     </div>
   </div>
-    <div class="equation">
-      Odds Ratio = (a/b) / (c/d)<br>
+  <div class="equation">
+    Odds Ratio = (a/b) / (c/d)<br>
+    <span class="equation-details">
       where:<br>
       a = exposed with condition<br>
       b = exposed without condition<br>
       c = unexposed with condition<br>
       d = unexposed without condition
-    </div>
+    </span>
+  </div>
 </div>
 </body>
 </html>

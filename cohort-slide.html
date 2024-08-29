@@ -66,15 +66,16 @@
             border-radius: 50%;
             display: inline-block;
         }
-        .gray { background-color: #888; }
+        .gray { background-color: #ccc; }
         .blue { background-color: #4285F4; }
         .purple { background-color: #A142F4; }
+        .red { background-color: #F44242; }
         .legend {
             background-color: #f0f0f0;
             padding: 10px;
             border-radius: 5px;
             margin-left: 20px;
-            margin-top: 87px;
+            margin-top: 74px;
             align-self: flex-start;
         }
         .legend-item {
@@ -165,7 +166,7 @@
                     <div class="participant gray"></div>
                     <div class="participant purple"></div>
                     <div class="participant blue"></div>
-                    <div class="participant gray"></div>
+                    <div class="participant red"></div>
                     <div class="participant purple"></div>
                     <div class="participant gray"></div>
                     <div class="participant blue"></div>
@@ -173,7 +174,7 @@
                     <div class="participant blue"></div>
                     <div class="participant gray"></div>
                     <div class="participant purple"></div>
-                    <div class="participant gray"></div>
+                    <div class="participant red"></div>
                     <div class="participant purple"></div>
                     <div class="participant gray"></div>
                     <div class="participant gray"></div>
@@ -185,15 +186,19 @@
     <div class="legend">
         <div class="legend-item">
             <div class="legend-color gray"></div>
-            <span>Initial/Unexposed</span>
+            <span>Unexposed/Healthy</span>
         </div>
         <div class="legend-item">
             <div class="legend-color blue"></div>
-            <span>Exposed</span>
+            <span>Exposed/Healthy</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color red"></div>
+            <span>Unexposed/Disease</span>
         </div>
         <div class="legend-item">
             <div class="legend-color purple"></div>
-            <span>Disease</span>
+            <span>Exposed/Disease</span>
         </div>
     </div>
 </div>
