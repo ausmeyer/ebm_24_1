@@ -37,9 +37,7 @@ format:
 :::{.column width="60%"}
 ![](figs/fig1.webp)
 :::
-
 :::
-
 
 ---
 
@@ -126,8 +124,6 @@ ggplot() +
 :::
 :::
 
-
-
 ---
 
 ## The EBM Process: Ask
@@ -179,7 +175,6 @@ ggplot() +
 ## The EBM Process: Acquire
 
 :::{.columns .column-container}
-
 :::{.column width='50%'}
 ::: {.column}
 ![](figs/fig_cochrane.png)
@@ -546,6 +541,9 @@ document.getElementById('reset-button-3').onclick = function() {
 </script>
 ```
 
+---
+layout: true
+class: center, middle
 ---
 
 # Research Methods Overview
