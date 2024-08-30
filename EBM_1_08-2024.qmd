@@ -324,6 +324,8 @@ ggplot(df, aes(xmin = 0, xmax = Value, ymin = ymin-2, ymax = ymax+2, fill = Leve
   )
 ```
 
+---
+
 ## Question 1
 
 ::: {#quiz-container-1}
@@ -396,6 +398,8 @@ document.getElementById('reset-button-1').onclick = function() {
 </script>
 ```
 
+---
+
 ## Question 2
 
 ::: {#quiz-container-2}
@@ -467,6 +471,8 @@ document.getElementById('reset-button-2').onclick = function() {
 };
 </script>
 ```
+
+---
 
 ## Question 3
 
