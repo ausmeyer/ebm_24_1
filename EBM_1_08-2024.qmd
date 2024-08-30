@@ -910,3 +910,171 @@ document.getElementById('reset-button-6').onclick = function() {
 
 ---
 
+# Applications to Clinical Practice
+
+---
+
+## Role of Clinical Guidelines in Pediatrics
+
+### Introduction to Clinical Guidelines
+
+- **Definition:** Clinical guidelines are systematically developed statements that assist clinicians and patients in making decisions about appropriate healthcare for specific clinical circumstances.
+- **Purpose:** They aim to improve the quality of care by providing evidence-based recommendations.
+- **Structure:** Virtually all guidelines begin with a systematic review of the literature.
+
+--- 
+
+## Meta-Analyses (Part 1)
+
+### Overview and Key Concepts
+
+- **What is a Meta-Analysis?**
+  - Meta-analysis is a statistical technique that combines the results of multiple studies to produce a single estimate of the overall effect.
+
+- **Effect Size and Models:**
+  - **Effect Size:** A measure of the strength of the relationship between variables across studies (e.g., odds ratio, relative risk, mean difference).
+  - **Fixed-Effect Model:** Assumes that all studies estimate the same effect size; variability is due to random error.
+  - **Random-Effects Model:** Assumes that effect sizes vary across studies due to real differences; accounts for between-study variability.
+
+---
+
+## Meta-Analyses (Part 2)
+
+### Advanced Techniques and Interpretation
+
+- **Forest Plots:**
+  - Visual representation of individual study results and the overall pooled estimate.
+  - Each study is represented as a line, with the size of the marker indicating the weight of the study.
+
+- **Heterogeneity Assessment:**
+  - **I² Statistic:** Measures the proportion of variability in effect estimates due to heterogeneity rather than chance.
+  - **Cochran’s Q Test:** Statistical test for heterogeneity; significant results indicate the presence of heterogeneity.
+
+- **Publication Bias Assessment:**
+  - **Funnel Plots:** Scatterplot of study effect sizes against sample size to detect asymmetry, which may indicate publication bias.
+
+---
+
+## Interpretting Funnel Plots
+
+:::{.columns .column-container}
+:::{.column width='50%'}
+::: {.column}
+```{r unbiased-funnel-plot}
+# Set seed for reproducibility
+set.seed(42)
+
+# Number of studies
+num_studies <- 20
+
+# Effect size
+effect_size <- 0.5
+
+# Generate simulated data
+study <- 1:num_studies
+standard_error <- runif(num_studies, min = 0.15, max = 0.5)
+effect <- rnorm(num_studies, mean = effect_size, sd = standard_error)
+
+# Create data frame
+df <- data.frame(study, effect, standard_error = standard_error - min(standard_error) + 0.05)
+
+# Calculate funnel plot boundaries
+df$lower_bound = effect_size - 1.96 * df$standard_error
+df$upper_bound = effect_size + 1.96 * df$standard_error
+
+# Plot using ggplot
+ggplot(df, aes(y = standard_error, x = effect)) +
+  geom_point() +
+  geom_path(aes(y = standard_error, x = lower_bound), color = "black") +
+  geom_path(aes(y = standard_error, x = upper_bound), color = "black") +
+  scale_y_continuous(trans = "reverse") + 
+  theme_minimal(16) +
+  labs(x = "effect size", y = "standard error")
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.column}
+```{r biased-funnel-plot}
+# Create data frame
+df <- data.frame(study, effect, standard_error = standard_error - 0.25 * effect - min(standard_error - 0.25 * effect) + 0.05)
+
+# Calculate funnel plot boundaries
+df$lower_bound = effect_size - 1.96 * df$standard_error
+df$upper_bound = effect_size + 1.96 * df$standard_error
+
+# Plot using ggplot
+ggplot(df, aes(y = standard_error, x = effect)) +
+  geom_point() +
+  geom_path(aes(y = standard_error, x = lower_bound), color = "black") +
+  geom_path(aes(y = standard_error, x = upper_bound), color = "black") +
+  scale_y_continuous(trans = "reverse") + 
+  theme_minimal(16) +
+  labs(x = "effect size", y = "standard error")
+```
+:::
+:::
+:::
+:::
+
+---
+
+## Interpretting Forest Plots
+
+::: {.column-container}
+::: {.column width="45%"}
+![](figs/forest1.svg){.image-container}
+:::
+
+::: {.column width="45%"}
+![](figs/forest2.svg){.image-container}
+:::
+:::
+:::
+
+---
+
+## Systematic Reviews (Part 1)
+
+### Overview and Process
+
+- **What is a Systematic Review?**
+  - A systematic review is a structured approach to reviewing the literature, aiming to answer a specific research question by synthesizing all relevant studies.
+  
+- **Key Steps in Conducting a Systematic Review:**
+  - **Formulate Research Question:** Use PICO (Population, Intervention, Comparison, Outcome) framework to define the scope.
+  - **Search Strategy:** Conduct comprehensive searches in multiple databases like PubMed, Cochrane, and Embase.
+  - **Study Selection:** Apply inclusion and exclusion criteria to identify relevant studies.
+  - **Data Extraction:** Systematically collect data from selected studies.
+
+---
+
+## Systematic Reviews (Part 2)
+
+### Quality Assessment and Bias
+
+- **Critical Appraisal of Studies:**
+  - **Risk of Bias:** Evaluate potential biases in the included studies using tools like the Cochrane Risk of Bias tool.
+  - **Quality Assessment:** Assess the quality of evidence using frameworks like GRADE (Grading of Recommendations Assessment, Development, and Evaluation).
+
+- **Synthesizing Evidence:**
+  - **Narrative Synthesis:** Summarize the findings from studies qualitatively.
+  - **Statistical Synthesis:** If appropriate, use meta-analysis to quantitatively combine data.
+
+- **Common Biases in Systematic Reviews:**
+  - **Publication Bias:** Studies with positive results are more likely to be published.
+  - **Selection Bias:** Inconsistent inclusion criteria across studies can affect outcomes.
+
+---
+
+## Systematic Reviews (Part 3)
+
+### Example of a Bias Assessment by Cochrane
+
+<iframe src="bias-risk-chart.html" width="100%" height="600px"></iframe>
+
+---
+
+## Summary
+

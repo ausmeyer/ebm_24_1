@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bias Risk Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        .cell { stroke: #333; stroke-width: 0.5; }
+        .rowLabel, .colLabel { font-size: 18px; } /* Increased font size to 18px */
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+    <script>
+        const data = [
+            {name: "Best 2007", values: ["+","+","-","+","+","+","+"]},
+            {name: "Bossi 2004", values: ["+","?","-","-","+","+","?"]},
+            {name: "Burger 2003", values: ["?","?","-","-","+","+","?"]},
+            {name: "Clevenbergh 2002", values: ["+","+","-","-","-","+","-"]},
+            {name: "Crommentuyn 2005", values: ["?","?","-","-","+","+","?"]},
+            {name: "Fletcher 2002", values: ["+","+","-","-","+","+","?"]},
+            {name: "Khoo 2006", values: ["+","?","-","-","+","-","-"]},
+            {name: "Torti 2005", values: ["+","?","-","+","+","-","-"]}
+        ];
+
+        const columns = [
+            "Random sequence generation",
+            "Allocation concealment",
+            "Blinding of participants and personnel",
+            "Blinding of outcome assessment",
+            "Incomplete outcome data",
+            "Selective reporting",
+            "Other bias"
+        ];
+
+        const width = 800;
+        const height = 450;
+        const margin = {top: 150, right: 50, bottom: 80, left: 200};
+        const moveDown = 100;
+
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height + moveDown);
+
+        const chartGroup = svg.append("g")
+            .attr("transform", `translate(0, ${moveDown})`);
+
+        const xScale = d3.scaleBand()
+            .range([margin.left, width - margin.right])
+            .domain(columns)
+            .padding(0.1);
+
+        const yScale = d3.scaleBand()
+            .range([margin.top, height - margin.bottom - 30])
+            .domain(data.map(d => d.name))
+            .padding(0.1);
+
+        // Add column labels
+        chartGroup.selectAll(".colLabel")
+            .data(columns)
+            .enter().append("text")
+            .attr("class", "colLabel")
+            .attr("x", d => xScale(d) + xScale.bandwidth() / 2)
+            .attr("y", margin.top - 20)  // Moved up slightly more
+            .attr("text-anchor", "start")
+            .attr("transform", d => `rotate(-45, ${xScale(d) + xScale.bandwidth() / 2}, ${margin.top - 20})`)
+            .text(d => d);
+
+        // Add row labels
+        chartGroup.selectAll(".rowLabel")
+            .data(data)
+            .enter().append("text")
+            .attr("class", "rowLabel")
+            .attr("x", margin.left - 5)
+            .attr("y", d => yScale(d.name) + yScale.bandwidth() / 2)
+            .attr("text-anchor", "end")
+            .attr("dominant-baseline", "middle")
+            .text(d => d.name);
+
+        // Add cells
+        chartGroup.selectAll(".cell")
+            .data(data.flatMap(d => d.values.map((v, i) => ({name: d.name, column: columns[i], value: v}))))
+            .enter().append("circle")
+            .attr("class", "cell")
+            .attr("cx", d => xScale(d.column) + xScale.bandwidth() / 2)
+            .attr("cy", d => yScale(d.name) + yScale.bandwidth() / 2)
+            .attr("r", Math.min(xScale.bandwidth(), yScale.bandwidth()) / 2 * 0.9)
+            .attr("fill", d => d.value === "+" ? "#90EE90" : d.value === "-" ? "#FFB6C1" : "#F0E68C");
+
+        // Add legend at the bottom
+        const legendData = [
+            {label: "Low risk of bias", color: "#90EE90"},
+            {label: "High risk of bias", color: "#FFB6C1"},
+            {label: "Unclear risk of bias", color: "#F0E68C"}
+        ];
+
+        const legend = chartGroup.append("g")
+            .attr("transform", `translate(${margin.left}, ${height - margin.bottom + 20})`);
+
+        const legendItemWidth = (width - margin.left - margin.right) / legendData.length;
+
+        legend.selectAll("g")
+            .data(legendData)
+            .enter().append("g")
+            .attr("transform", (d, i) => `translate(${i * legendItemWidth}, 0)`)
+            .each(function(d) {
+                d3.select(this).append("circle")
+                    .attr("cx", 0)
+                    .attr("cy", 0)
+                    .attr("r", 7)
+                    .style("fill", d.color);
+
+                d3.select(this).append("text")
+                    .attr("x", 15)
+                    .attr("y", 0)
+                    .text(d.label)
+                    .attr("alignment-baseline", "middle")
+                    .style("font-size", "18px");  // Increased legend font size to 18px
+            });
+    </script>
+</body>
+</html>
