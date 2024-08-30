@@ -915,6 +915,9 @@ document.getElementById('reset-button-6').onclick = function() {
 ```
 
 ---
+layout: true
+class: center, middle
+---
 
 # Applications to Clinical Practice
 
@@ -1081,6 +1084,10 @@ ggplot(df, aes(y = standard_error, x = effect)) +
 <iframe src="bias-risk-chart.html" width="100%" height="600px"></iframe>
 
 ---
+layout: true
+class: center, middle
+---
 
-## Summary
+# Summary
 
+---
