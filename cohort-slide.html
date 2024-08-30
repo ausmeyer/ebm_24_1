@@ -11,18 +11,14 @@
             align-items: center;
         }
         .container {
-            background-color: white;
-            border-radius: 10px;
             display: flex;
-            align-items: stretch;
-            padding-top: 20px;
+            align-items: flex-start; /* Adjust alignment to top */
         }
         .process {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start; /* Keep steps at the top */
             margin-right: 20px;
-            padding-right: 20px;
         }
         .step {
             text-align: center;
@@ -34,26 +30,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 40px;
+            height: 50px;
         }
         .arrow {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 40px;
+            height: 40px; /* Increase this value to make the arrow longer */
         }
         .arrow::after {
             content: "↓";
             font-size: 24px;
+            line-height: 20px; /* Match this to the new height of the arrow */
         }
         .cohort-visualization {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start; /* Ensure participant groups are aligned correctly */
             padding-top: 5px;
+            gap: 60px;
         }
         .group {
-            margin-bottom: 5px;
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
         }
         .participants {
             display: grid;
@@ -75,7 +75,7 @@
             padding: 10px;
             border-radius: 5px;
             margin-left: 20px;
-            margin-top: 74px;
+            margin-top: 135px;
             align-self: flex-start;
         }
         .legend-item {
@@ -88,6 +88,16 @@
             height: 15px;
             margin-right: 5px;
             border-radius: 50%;
+        }
+        .equation {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 20px; /* Reduced to prevent spacing issues */
+        }
+        .equation-details {
+            font-size: 0.7em;
+            display: inline-block; /* This might help keep the layout intact */
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -103,7 +113,11 @@
             </div>
             <div class="arrow"></div>
             <div class="step">
-                3. Outcome
+                3. Observe Outcome
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                4. Run Statistical Test
             </div>
         </div>
 
@@ -181,6 +195,16 @@
                     <div class="participant blue"></div>
                     <div class="participant gray"></div>
                 </div>
+            </div>
+            <div class="equation">
+              Risk Ratio = (a/(a+b)) / (c/(c+d))<br>
+              <span class="equation-details">
+                where:<br>
+                a = exposed with condition<br>
+                b = exposed without condition<br>
+                c = unexposed with condition<br>
+                d = unexposed without condition
+              </span>
             </div>
         </div>
     <div class="legend">

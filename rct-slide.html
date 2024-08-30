@@ -23,7 +23,7 @@
             justify-content: space-between;
             margin-right: 20px;
             padding-right: 20px;
-            padding-top: 40px;
+            padding-top: 48px;
         }
         .step {
             text-align: center;
@@ -66,17 +66,16 @@
         .participants {
             display: grid;
             grid-template-columns: repeat(10, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 5px;
+            gap: 6.5px;
         }
         .participant {
             width: 20px;
             height: 20px;
-            background-color: #ccc;
             border-radius: 50%;
+            display: inline-block;
         }
         .group-icon {
-            margin-top: 10px;
+            margin-top: 20px;
         }
         .group-icon img {
             width: 50px;
@@ -84,10 +83,33 @@
         }
         .equation {
             font-size: 2em;
-            margin-top: 20px;
+            margin-top: 130px;
             text-align: center;
             width: 100%;
         }
+        .legend {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: -100px;
+            margin-top: 500px;
+            align-self: flex-start;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+        .gray { background-color: #ccc; }
+        .blue { background-color: #4285F4; }
+        .purple { background-color: #A142F4; }
+        .red { background-color: #F44242; }
     </style>
 </head>
 <body>
@@ -102,28 +124,118 @@
             </div>
             <div class="arrow"></div>
             <div class="step">
-                3. Run Statistical Test
+                3. Observe Outcome
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                4. Run Statistical Test
             </div>
         </div>
         <div id="rct-visualization">
             <div class="groups">
                 <div class="group">
                     <h3>Treatment Group</h3>
-                    <div id="treatment-group" class="participants"></div>
+                    <div class="participants">
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                    </div>
                     <div class="group-icon">
                         <svg viewBox="-18 -18 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>                      
                     </div>
+                    <div class="participants">
+                        <div class="participant purple"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant purple"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant blue"></div>
+                    </div>
                 </div>
                 <div class="group">
                     <h3>Control Group</h3>
-                    <div id="control-group" class="participants"></div>
+                    <div class="participants">
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                    </div>
                     <div class="group-icon">
                         <svg viewBox="-18 -18 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 2L7 22H17L19 2H5Z" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
                             <path d="M7 13H17" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>  
+                    </div>
+                    <div class="participants">
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant red"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant blue"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant red"></div>
+                        <div class="participant blue"></div>
                     </div>
                 </div>
             </div>
@@ -140,20 +252,24 @@
                 </math>
             </div>
         </div>
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color gray"></div>
+            <span>Unexposed/Healthy</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color blue"></div>
+            <span>Exposed/Healthy</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color red"></div>
+            <span>Unexposed/Disease</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color purple"></div>
+            <span>Exposed/Disease</span>
+        </div>
     </div>
-
-    <script>
-        function createParticipants(groupId, count) {
-            const group = document.getElementById(groupId);
-            for (let i = 0; i < count; i++) {
-                const participant = document.createElement('div');
-                participant.className = 'participant';
-                group.appendChild(participant);
-            }
-        }
-
-        createParticipants('treatment-group', 20);
-        createParticipants('control-group', 20);
-    </script>
+    </div>
 </body>
 </html>

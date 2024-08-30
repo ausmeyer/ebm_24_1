@@ -588,7 +588,7 @@ class: center, middle
 
 ### Gold Standard for Causality
 
-<iframe src="rct-slide.html" width="100%" height="500px"></iframe>
+<iframe src="rct-slide.html" width="100%" height="700px"></iframe>
 
 ---
 
@@ -991,11 +991,11 @@ df$upper_bound = effect_size + 1.96 * df$standard_error
 
 # Plot using ggplot
 ggplot(df, aes(y = standard_error, x = effect)) +
-  geom_point() +
-  geom_path(aes(y = standard_error, x = lower_bound), color = "black") +
-  geom_path(aes(y = standard_error, x = upper_bound), color = "black") +
+  geom_point(size = 4) +
+  geom_path(aes(y = standard_error, x = lower_bound), color = "black", linewidth = 2) +
+  geom_path(aes(y = standard_error, x = upper_bound), color = "black", linewidth = 2) +
   scale_y_continuous(trans = "reverse") + 
-  theme_minimal(16) +
+  theme_minimal(24) +
   labs(x = "effect size", y = "standard error")
 ```
 :::
@@ -1013,11 +1013,11 @@ df$upper_bound = effect_size + 1.96 * df$standard_error
 
 # Plot using ggplot
 ggplot(df, aes(y = standard_error, x = effect)) +
-  geom_point() +
-  geom_path(aes(y = standard_error, x = lower_bound), color = "black") +
-  geom_path(aes(y = standard_error, x = upper_bound), color = "black") +
+  geom_point(size = 4) +
+  geom_path(aes(y = standard_error, x = lower_bound), color = "black", linewidth = 2) +
+  geom_path(aes(y = standard_error, x = upper_bound), color = "black", linewidth = 2) +
   scale_y_continuous(trans = "reverse") + 
-  theme_minimal(16) +
+  theme_minimal(24) +
   labs(x = "effect size", y = "standard error")
 ```
 :::
