@@ -55,6 +55,10 @@
   margin-top: -30px;
 }
 
+.reveal .slides > section:not([data-state="title-slide"]) .mermaid {
+  margin-top: -80px;
+}
+
 /* Column layout styles */
 .reveal .column-container {
   display: flex;
