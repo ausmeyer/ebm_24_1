@@ -596,7 +596,7 @@ class: center, middle
 
 ### Observational Study Design
 
-<iframe src="cohort-slide.html" width="100%" height="500px"></iframe>
+<iframe src="cohort-slide.html" width="100%" height="600px"></iframe>
 
 ---
 
@@ -630,32 +630,54 @@ class: center, middle
 ## Critical Appraisal of Research Articles
 
 ```{mermaid}
-%%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '18px' }}}%%
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'fontSize': '24px',
+      'fontFamily': 'Arial, sans-serif',
+      'lineColor': '#333',
+      'primaryColor': '#f0f0f0',
+      'primaryTextColor': '#333',
+      'primaryBorderColor': '#666',
+      'edgeLabelBackground': '#ffffff',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
 flowchart TD
-    A[Did investigator assign exposures?] -->|Yes| B[Experimental study]
-    A -->|No| C[Observational study]
+    A[Did investigator assign exposures?] -->Y1(Yes)-->B[Experimental study]
+    A -->N1(No)-->C[Observational study]
 
     B --> D{Random allocation?}
-    D -->|Yes| E[Randomised controlled trial]
-    E --> E1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]:::tallNode
-    D -->|No| F[Non-randomised controlled trial]
-    F --> F1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]:::tallNode
+    D -->Y2(Yes)-->E[Randomised controlled trial]
+    E --> E1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]
+    D -->N2(No)-->F[Non-randomised<br>controlled trial]
+    F --> F1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]
 
     C --> G{Comparison group?}
-    G -->|No| I[Descriptive study]
-    I --> I1[Summary statistics possibly]
-    G -->|Yes| H[Analytical study]
+    G -->N3(No)-->I[Descriptive study]
+    I --> I1[Summary statistics]
+    G -->Y3(Yes)-->H[Analytical study]
     H ---> K[Cohort study]
-    K --> K1["Regression / HR / T-test<br>ANOVA / Chi-Square / RR"]:::tallNode
+    K --> K1["Regression / HR / T-test<br>ANOVA / Chi-Square / RR"]
     H ---> L[Case-control study]
-    L --> L1["Regression (esp. Logistic) / T-test<br>Chi-Square / McNemar's / OR"]:::tallNode
+    L --> L1["Regression (esp. Logistic) / T-test<br>Chi-Square / McNemar's / OR"]
     H ---> M[Cross-sectional study]
     M --> M1["Regression / T-test<br>Chi-Square / OR"]
+    
+    classDef yesno fill:none,stroke:none;
+    classDef question fill:#cdc6ff;
+    classDef tests fill:#ff9b9b;
+    classDef study fill:#84cdee;
+    
+    class N1,Y1,N2,Y2,N3,Y3 yesno;
+    class A,D,G question;
+    class E1,F1,K1,L1,M1 tests;
+    class E,F,K,L,M, study;
 
     %% Lengthen lines
     linkStyle 7,8,9 stroke-width:2px,fill:none,stroke:black;
-
-    classDef tallNode height:75;
 ```
 
 ---
