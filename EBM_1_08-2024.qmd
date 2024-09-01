@@ -616,18 +616,7 @@ class: center, middle
 
 ---
 
-## Critical Appraisal of Research Articles
-
-### Assessing Methodology
-
-- **Study Design:** Was the study design appropriate for the research question? (e.g., RCT, cohort, case-control)
-- **Sample Size:** Is the sample size sufficient to detect a meaningful difference or effect? (i.e. is there sufficient power)
-- **Blinding and Randomization:** Were the participants and researchers adequately blinded, and was the randomization process robust?
-- **Outcome Measures:** Are the outcome measures valid, reliable, and clinically relevant?
-
----
-
-## Critical Appraisal of Research Articles
+## Understanding study type and its analysis
 
 ```{dot}
 digraph G {
@@ -692,6 +681,17 @@ digraph G {
   {rank=same; E1; F1; K1; L1; M1; I1;}
 }
 ```
+
+---
+
+## Critical Appraisal of Research Articles
+
+### Assessing Methodology
+
+- **Study Design:** Was the study design appropriate for the research question? (e.g., RCT, cohort, case-control)
+- **Sample Size:** Is the sample size sufficient to detect a meaningful difference or effect? (i.e. is there sufficient power)
+- **Blinding and Randomization:** Were the participants and researchers adequately blinded, and was the randomization process robust?
+- **Outcome Measures:** Are the outcome measures valid, reliable, and clinically relevant?
 
 ---
 
