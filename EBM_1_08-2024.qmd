@@ -629,55 +629,68 @@ class: center, middle
 
 ## Critical Appraisal of Research Articles
 
-```{mermaid}
-%%{
-  init: {
-    'theme': 'base',
-    'themeVariables': {
-      'fontSize': '24px',
-      'fontFamily': 'Arial, sans-serif',
-      'lineColor': '#333',
-      'primaryColor': '#f0f0f0',
-      'primaryTextColor': '#333',
-      'primaryBorderColor': '#666',
-      'edgeLabelBackground': '#ffffff',
-      'tertiaryColor': '#fff'
-    }
-  }
-}%%
-flowchart TD
-    A[Did investigator assign exposures?] -->Y1(Yes)-->B[Experimental study]
-    A -->N1(No)-->C[Observational study]
+```{dot}
+digraph G {
+  node [shape=box, fontname="Arial", fontsize=30, style=filled, fillcolor="#f0f0f0", color="#666"];
+  edge [color="#333"];
 
-    B --> D{Random allocation?}
-    D -->Y2(Yes)-->E[Randomised controlled trial]
-    E --> E1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]
-    D -->N2(No)-->F[Non-randomised<br>controlled trial]
-    F --> F1["Regression / HR / T-test<br>ANOVA / Chi-Square / ITT"]
+  A [label="Did investigator assign exposures?", fillcolor="#cdc6ff"];
+  B [label="Experimental study", fillcolor="#84cdee"];
+  C [label="Observational study", fillcolor="#84cdee"];
+  D [label="Random allocation?", fillcolor="#cdc6ff"];
+  E [label="Randomised\ncontrolled trial", fillcolor="#84cdee"];
+  F [label="Non-randomised\ncontrolled trial", fillcolor="#84cdee"];
+  G [label="Comparison group?", fillcolor="#cdc6ff"];
+  H [label="Analytical study", fillcolor="#84cdee"];
+  I [label="Descriptive", fillcolor="#f0f0f0", shape=none];
+  K [label="Cohort", fillcolor="#84cdee"];
+  L [label="Case-control", fillcolor="#84cdee"];
+  M [label="Cross-sectional", fillcolor="#84cdee"];
+  
+  A1 [label="Yes", fillcolor="#ffffff"]
+  A2 [label="No", fillcolor="#ffffff"]
+  D1 [label="Yes", fillcolor="#ffffff"]
+  D2 [label="No", fillcolor="#ffffff"]
+  G1 [label="Yes", fillcolor="#ffffff"]
+  G2 [label="No", fillcolor="#ffffff"]
 
-    C --> G{Comparison group?}
-    G -->N3(No)-->I[Descriptive study]
-    I --> I1[Summary statistics]
-    G -->Y3(Yes)-->H[Analytical study]
-    H ---> K[Cohort study]
-    K --> K1["Regression / HR / T-test<br>ANOVA / Chi-Square / RR"]
-    H ---> L[Case-control study]
-    L --> L1["Regression (esp. Logistic) / T-test<br>Chi-Square / McNemar's / OR"]
-    H ---> M[Cross-sectional study]
-    M --> M1["Regression / T-test<br>Chi-Square / OR"]
-    
-    classDef yesno fill:none,stroke:none;
-    classDef question fill:#cdc6ff;
-    classDef tests fill:#ff9b9b;
-    classDef study fill:#84cdee;
-    
-    class N1,Y1,N2,Y2,N3,Y3 yesno;
-    class A,D,G question;
-    class E1,F1,K1,L1,M1 tests;
-    class E,F,K,L,M, study;
+  E1 [label="Regression\nHR\nt-test\nANOVA\nChi-Square\nITT", fillcolor="#ff9b9b", shape=none];
+  F1 [label="Regression\nHR\nt-test\nANOVA\nChi-Square\nITT", fillcolor="#ff9b9b", shape=none];
+  K1 [label="Regression\nHR\nt-test\nANOVA\nChi-Square\nRR", fillcolor="#ff9b9b", shape=none];
+  L1 [label="Regression-\n(esp. Logistic)\nt-test\nChi-Square\nMcNemar's\nOR", fillcolor="#ff9b9b", shape=none];
+  M1 [label="Regression\nt-test\nChi-Square\nOR", fillcolor="#ff9b9b", shape=none];
+  I1 [label="Summary\nstatistics", fillcolor="#f0f0f0", shape=none];
 
-    %% Lengthen lines
-    linkStyle 7,8,9 stroke-width:2px,fill:none,stroke:black;
+  A -> A1;
+  A1 -> B;
+  A -> A2;
+  A2 -> C;
+  B -> D;
+  C -> G;
+  D -> D1;
+  D1 -> E;
+  D -> D2;
+  D2 -> F;
+  G -> G1;
+  G1 -> H;
+  G -> G2;
+  G2 -> I;
+  H -> K;
+  H -> L;
+  H -> M;
+  E -> E1;
+  F -> F1;
+  K -> K1;
+  L -> L1;
+  M -> M1;
+  I -> I1;
+
+  {rank=same; B; C;}
+  {rank=same; D; G;}
+  {rank=same; E; F; H;}
+  {rank=same; K; L; M;}
+  {rank=same; E1; F1; K1; L1; M1; I1;}
+}
 ```
 
 ---
