@@ -710,10 +710,11 @@ digraph G {
 
 ## Critical Appraisal of Research Articles
 
-### Assessing Methodology
+### Questions to ask for appraisal
 
 - **Study Design:** Was the study design appropriate for the research question? (e.g., RCT, cohort, case-control)
 - **Sample Size:** Is the sample size sufficient to detect a meaningful difference or effect? (i.e. is there sufficient power)
+  - Do we have a sense for what is a reasonable power?
 - **Blinding and Randomization:** Were the participants and researchers adequately blinded, and was the randomization process robust?
 - **Outcome Measures:** Are the outcome measures valid, reliable, and clinically relevant?
 
@@ -721,7 +722,7 @@ digraph G {
 
 ## Assessing Bias in Research
 
-### Common Types of Bias
+### What happens when the questions are not well answered
 
 - **Selection Bias:** Are the participants selected in a way that may skew the results?
   - Selection bias occurs when the participants included in a study are not representative of the target population, leading to results that may not be generalizable.
@@ -734,7 +735,7 @@ digraph G {
 
 ## Relevance to Clinical Practice
 
-### Assessing Relevance
+#### Prior questions were about internal validity (i.e. was the study conducted well)
 
 :::{.columns .column-container}
 :::{.column width="35%"}
