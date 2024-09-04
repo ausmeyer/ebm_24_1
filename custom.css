@@ -1,4 +1,11 @@
 /* General slide styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .reveal .slides {
   font-size: 28px;
 }
@@ -159,4 +166,20 @@
 
 .mermaid .nodeLabel foreignObject {
   overflow: visible;
+}
+
+/* Ensure the ReactFlow container takes the full available width and height */
+.reveal #study-design-flow {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Ensure it takes the full height */
+}
+
+/* Ensure the nodes are correctly centered */
+.reveal #study-design-flow .react-flow__node {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }

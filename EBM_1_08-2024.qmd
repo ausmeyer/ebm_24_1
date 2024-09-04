@@ -687,17 +687,15 @@ digraph G {
 ## Understanding study type and its analysis
 
 ```{=html}
-<div id="study-design-flow" style="width: 100%; height: 600px;"></div>
-
+<div id="study-design-flow"></div>
 <link href="https://unpkg.com/reactflow@11.11.4/dist/style.css" rel="stylesheet" />
-
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reactflow@11.11.4/dist/umd/index.min.js"></script>
 <script src="flow-diagram-widget/dist/widget.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    if (typeof StudyDesignFlowWidget !== 'undefined' && 
+    if (typeof StudyDesignFlowWidget !== 'undefined' &&
         typeof StudyDesignFlowWidget.initStudyDesignFlowWidget === 'function') {
       StudyDesignFlowWidget.initStudyDesignFlowWidget(document.getElementById('study-design-flow'));
     } else {
