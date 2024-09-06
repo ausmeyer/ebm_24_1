@@ -1410,9 +1410,6 @@ class: center, middle
   
 - **Critical Appraisal:**
   - Critical appraisal of research articles includes evaluating the **study methodology**, assessing **bias**, and determining the **relevance** to clinical practice.
-
-- **Role of Clinical Guidelines:**
-  - **Clinical guidelines** are developed based on systematic reviews and meta-analyses, synthesizing the best available evidence to improve the quality of care in pediatrics.
   
 - **Systematic Reviews & Meta-Analyses:**
   - **Systematic reviews** provide a structured approach to evaluating all available evidence, while **meta-analyses** combine results from multiple studies to generate more precise estimates of treatment effects.
