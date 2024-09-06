@@ -1189,6 +1189,207 @@ ggplot(df, aes(y = standard_error, x = effect)) +
 </div>
 
 ---
+
+### Question 7
+::: {#quiz-container-7}
+<p class="question">
+You are reviewing a meta-analysis that includes a funnel plot to assess for publication bias. The plot shows a noticeable asymmetry with smaller studies tending to report larger effect sizes. Which of the following is the MOST likely explanation for this finding?
+</p>
+<form id="quiz-form-7">
+  <label>
+    <input type="radio" name="answer-7" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> Larger studies tend to report more significant results than smaller studies</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-7" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> Publication bias, where smaller studies with positive results are more likely to be published</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-7" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> Small study effects, where smaller studies tend to have more precise estimates</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-7" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> Heterogeneity between studies, leading to differences in effect size</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-7" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-7"></div>
+<div id="explanation-7" style="display:none;">
+  <p><strong>Explanation:</strong> Funnel plot asymmetry with smaller studies reporting larger effect sizes is commonly due to publication bias, where smaller studies with positive results are more likely to be published. Other explanations like heterogeneity and small study effects could play a role, but publication bias is the most likely cause of this pattern.</p>
+</div>
+:::
+```{=html}
+<script>
+document.getElementById('quiz-form-7').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-7"]:checked');
+  var result = document.getElementById('result-7');
+  var explanation = document.getElementById('explanation-7');
+  var resetButton = document.getElementById('reset-button-7');
+  if (selected) {
+    if (selected.value === 'B') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+    document.querySelectorAll('input[name="answer-7"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+document.getElementById('reset-button-7').onclick = function() {
+  document.querySelectorAll('input[name="answer-7"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+  document.getElementById('result-7').innerHTML = '';
+  document.getElementById('explanation-7').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+---
+
+### Question 8
+::: {#quiz-container-8}
+<p class="question">
+A meta-analysis is performed to evaluate the effectiveness of a new vaccine in preventing childhood infections. Which of the following best describes the role of a meta-analysis in this context?
+</p>
+<form id="quiz-form-8">
+  <label>
+    <input type="radio" name="answer-8" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> A meta-analysis identifies a single study to provide definitive results on a treatment</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-8" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> A meta-analysis combines the results of multiple studies to produce a more precise estimate of the treatment effect</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-8" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> A meta-analysis evaluates the quality of clinical guidelines by expert consensus</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-8" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> A meta-analysis provides anecdotal evidence from case reports and clinical practice</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-8" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-8"></div>
+<div id="explanation-8" style="display:none;">
+  <p><strong>Explanation:</strong> A meta-analysis combines the results of multiple studies to provide a more precise estimate of a treatment's effectiveness, increasing the statistical power and generalizability of the findings.</p>
+</div>
+:::
+```{=html}
+<script>
+document.getElementById('quiz-form-8').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-8"]:checked');
+  var result = document.getElementById('result-8');
+  var explanation = document.getElementById('explanation-8');
+  var resetButton = document.getElementById('reset-button-8');
+  if (selected) {
+    if (selected.value === 'B') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is B.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+    document.querySelectorAll('input[name="answer-8"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+document.getElementById('reset-button-8').onclick = function() {
+  document.querySelectorAll('input[name="answer-8"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+  document.getElementById('result-8').innerHTML = '';
+  document.getElementById('explanation-8').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+---
+
+### Question 9
+::: {#quiz-container-9}
+<p class="question">
+When conducting a systematic review, a pediatric researcher follows a structured methodology to identify and appraise studies. Which of the following BEST represents a key step in the systematic review process?
+</p>
+<form id="quiz-form-9">
+  <label>
+    <input type="radio" name="answer-9" value="A">
+    <span class="answer-text"><span class="answer-letter">A.</span> Formulating a research question using the PICO framework</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-9" value="B">
+    <span class="answer-text"><span class="answer-letter">B.</span> Relying on expert opinion without considering primary studies</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-9" value="C">
+    <span class="answer-text"><span class="answer-letter">C.</span> Conducting interviews with clinicians to gather anecdotal evidence</span>
+  </label>
+  <label>
+    <input type="radio" name="answer-9" value="D">
+    <span class="answer-text"><span class="answer-letter">D.</span> Randomly selecting studies based on convenience</span>
+  </label>
+  <button type="submit">Submit Answer</button>
+  <button type="button" id="reset-button-9" style="display:none;">Reset Quiz</button>
+</form>
+<div id="result-9"></div>
+<div id="explanation-9" style="display:none;">
+  <p><strong>Explanation:</strong> One of the first steps in conducting a systematic review is formulating a research question using the PICO (Population, Intervention, Comparison, Outcome) framework, which guides the literature search and study selection process.</p>
+</div>
+:::
+```{=html}
+<script>
+document.getElementById('quiz-form-9').onsubmit = function(e) {
+  e.preventDefault();
+  var selected = document.querySelector('input[name="answer-9"]:checked');
+  var result = document.getElementById('result-9');
+  var explanation = document.getElementById('explanation-9');
+  var resetButton = document.getElementById('reset-button-9');
+  if (selected) {
+    if (selected.value === 'A') {
+      result.innerHTML = '<p style="color: green;">Correct!</p>';
+    } else {
+      result.innerHTML = '<p style="color: red;">Incorrect. The correct answer is A.</p>';
+    }
+    explanation.style.display = 'block';
+    resetButton.style.display = 'inline-block';
+    document.querySelectorAll('input[name="answer-9"]').forEach(function(radio) {
+      radio.disabled = true;
+    });
+  } else {
+    result.innerHTML = '<p>Please select an answer.</p>';
+  }
+};
+document.getElementById('reset-button-9').onclick = function() {
+  document.querySelectorAll('input[name="answer-9"]').forEach(function(radio) {
+    radio.checked = false;
+    radio.disabled = false;
+  });
+  document.getElementById('result-9').innerHTML = '';
+  document.getElementById('explanation-9').style.display = 'none';
+  this.style.display = 'none';
+};
+</script>
+```
+
+---
 layout: true
 class: center, middle
 ---
@@ -1196,3 +1397,22 @@ class: center, middle
 # Summary
 
 ---
+
+## Summary of Lecture 1: Evidence-Based Medicine
+
+### Key Takeaways
+
+- **Definition of EBM:**
+  - Evidence-Based Medicine (EBM) integrates the best available research evidence, clinical expertise, and patient values to guide clinical decision-making.
+  
+- **Research Methods Overview:**
+  - Understanding the differences between study designs such as **Randomized Controlled Trials (RCTs)**, **Cohort Studies**, and **Case-Control Studies** is crucial for interpreting research.
+  
+- **Critical Appraisal:**
+  - Critical appraisal of research articles includes evaluating the **study methodology**, assessing **bias**, and determining the **relevance** to clinical practice.
+
+- **Role of Clinical Guidelines:**
+  - **Clinical guidelines** are developed based on systematic reviews and meta-analyses, synthesizing the best available evidence to improve the quality of care in pediatrics.
+  
+- **Systematic Reviews & Meta-Analyses:**
+  - **Systematic reviews** provide a structured approach to evaluating all available evidence, while **meta-analyses** combine results from multiple studies to generate more precise estimates of treatment effects.

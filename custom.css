@@ -123,24 +123,24 @@
   font-size: 0.9em;
 }
 
-#quiz-container-1, #quiz-container-2, #quiz-container-3, #quiz-container-4, #quiz-container-5, #quiz-container-6 {
+#quiz-container-1, #quiz-container-2, #quiz-container-3, #quiz-container-4, #quiz-container-5, #quiz-container-6, #quiz-container-7, #quiz-container-8, #quiz-container-9 {
   font-size: 0.8em;
   text-align: left;
 }
 
-#quiz-container-1 .question, #quiz-container-2 .question, #quiz-container-3 .question, #quiz-container-4 .question, #quiz-container-5 .question, #quiz-container-6 .question {
+#quiz-container-1 .question, #quiz-container-2 .question, #quiz-container-3 .question, #quiz-container-4 .question, #quiz-container-5 .question, #quiz-container-6 .question, #quiz-container-7 .question, #quiz-container-8 .question, #quiz-container-9 .question {
   font-size: 1em;
   margin-bottom: 15px;
 }
 
-#quiz-container-1 label, #quiz-container-2 label, #quiz-container-3 label, #quiz-container-4 label, #quiz-container-5 label, #quiz-container-6 label {
+#quiz-container-1 label, #quiz-container-2 label, #quiz-container-3 label, #quiz-container-4 label, #quiz-container-5 label, #quiz-container-6 label, #quiz-container-7 label, #quiz-container-8 label, #quiz-container-9 label {
   display: flex;
   align-items: flex-start;
   margin-bottom: 10px;
   font-size: 0.9em;
 }
 
-#quiz-container-1 label input, #quiz-container-2 label input, #quiz-container-3 label input, #quiz-container-4 label input, #quiz-container-5 label input, #quiz-container-6 label input {
+#quiz-container-1 label input, #quiz-container-2 label input, #quiz-container-3 label input, #quiz-container-4 label input, #quiz-container-5 label input, #quiz-container-6 label input, #quiz-container-7 label input, #quiz-container-8 label input, #quiz-container-9 label input {
   margin-right: 10px;
   margin-top: 0.5em;
   flex-shrink: 0;
@@ -158,7 +158,7 @@
   text-indent: 0;
 }
 
-#quiz-container-1 button, #quiz-container-2 button, #quiz-container-3 button, #quiz-container-4 button, #quiz-container-5 button, #quiz-container-6 button {
+#quiz-container-1 button, #quiz-container-2 button, #quiz-container-3 button, #quiz-container-4 button, #quiz-container-5 button, #quiz-container-6 button, #quiz-container-7 button, #quiz-container-8 button, #quiz-container-9 button {
   margin-top: 12px;
   font-size: 0.9em;
   margin-right: 10px;
@@ -166,23 +166,4 @@
 
 .mermaid .nodeLabel foreignObject {
   overflow: visible;
-}
-
-/* Ensure the ReactFlow container takes the full available width and height */
-.reveal #study-design-flow {
-  position: relative;
-  width: 100%;
-  height: 100%; /* Ensure it takes the full height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Ensure the nodes are correctly centered */
-.reveal #study-design-flow .react-flow__node {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
 }
